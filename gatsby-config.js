@@ -1,34 +1,50 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: 'Coding saga',
+    description: 'Coding saga is about sharing my personal experiences about programming',
+    author: {
+      name: 'Kuldeep Yadav',
+      shortIntro: 'Software Developer, India',
+      about: 'Hi, My name is Kuldeep Yadav and I live in Gurugram, India and work in a small startup, I have a beautiful wife and family.\nI have worked upon various programming langauges and frameworks in my career and I love to build things from scratch.\nHere, I share whatever I learnt and tried so far.',
+      contact: 'kuldeepyadav7291@gmail.com',
+      social: {
+        twitter: 'marzi_ka_maalik',
+        github: 'novicedev7291'
+      }
+    },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-typography',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        pathToConfigModule: 'src/utils/typography' 
+      }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        path: `${__dirname}/content/posts`,
+        name: 'posts'
+      }
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: 'assets'
+      }
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          'gatsby-remark-prismjs'
+        ]
+      }
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-postcss'
   ],
 }
