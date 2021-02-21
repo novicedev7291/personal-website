@@ -14,7 +14,6 @@
     "gatsby-plugin-typography": "^2.12.0",
     "gatsby-remark-prismjs": "^3.13.0",
     "gatsby-source-filesystem": "^2.11.0",
-    "gatsby-transformer-remark": "^2.16.0",
     "gatsby-transformer-sharp": "^2.12.0",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
@@ -26,10 +25,14 @@
     "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
+    "@deckdeckgo/highlight-code": "^2.4.0",
     "autoprefixer": "^10.2.4",
     "gatsby-plugin-postcss": "^3.7.0",
+    "gatsby-remark-highlight-code": "^2.2.0",
+    "gatsby-transformer-remark": "^2.16.0",
     "postcss": "^8.2.6",
     "prettier": "2.2.1",
+    "react-markdown": "^5.0.3",
     "tailwindcss": "^2.0.3"
   },
   "keywords": [

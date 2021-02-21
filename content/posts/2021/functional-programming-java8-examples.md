@@ -13,11 +13,11 @@ In this post, I will give brief introduction of functional interfaces and lambda
 
 Some of the important functional interfaces Java 8 has to offer, which we will discuss in a while.
 
-- Function<T, R>
-- Consumer<T>
-- Supplier<T>
-- BiFunction<T, U, R>
-- Predicate<T>
+- `Function<T, R>`
+- `Consumer<T>`
+- `Supplier<T>`
+- `BiFunction<T, U, R>`
+- `Predicate<T>`
 
 ### Function<T,R>
 
@@ -284,6 +284,6 @@ ImprovedTaxCalculator calculator = new ImprovedTaxCalculator()
 Double newPrice = calculator.calculateTaxablePrice(item);
 ```
 
-You can see that how functional interface Function<T,R> can help us write better reusable code with clean fluent API, which is much better than the builder, we wrote earlier.
+You can see that how functional interface `Function<T,R>` can help us write better reusable code with clean fluent API, which is much better than the builder, we wrote earlier.
 
 For now, I will leave you all with this example, we will see some more examples and functional programming pros and cons in coming posts. So till then **_enjoy....._**

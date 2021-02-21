@@ -24,6 +24,7 @@ const IndexPage = ({ data, location }) => {
       date: node.frontmatter.date,
       tags: node.frontmatter.tags.split(','),
       timeToRead: node.timeToRead,
+      slug: node.slug
     }
   })
 
@@ -71,6 +72,9 @@ export const pageQuery = graphql`
         node {
           id,
           excerpt,
+          fields {
+            slug
+          },
           frontmatter {
             title,
             author,
