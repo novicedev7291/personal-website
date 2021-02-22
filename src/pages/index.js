@@ -24,7 +24,7 @@ const IndexPage = ({ data, location }) => {
       date: node.frontmatter.date,
       tags: node.frontmatter.tags.split(','),
       timeToRead: node.timeToRead,
-      slug: node.slug
+      slug: node.fields.slug
     }
   })
 
