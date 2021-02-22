@@ -4,7 +4,7 @@ module.exports = {
     description: 'Coding saga is about sharing my personal experiences about programming',
     author: {
       name: 'Kuldeep Yadav',
-      shortIntro: 'Software Developer, India',
+      shortIntro: 'Software Engineer, India',
       about: 'Hi, My name is Kuldeep Yadav and I live in Gurugram, India and work in a small startup, I have a beautiful wife and family.\nI have worked upon various programming langauges and frameworks in my career and I love to build things from scratch.\nHere, I share whatever I learnt and tried so far.',
       contact: 'kuldeepyadav7291@gmail.com',
       social: {

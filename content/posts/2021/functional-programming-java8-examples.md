@@ -13,11 +13,11 @@ In this post, I will give brief introduction of functional interfaces and lambda
 
 Some of the important functional interfaces Java 8 has to offer, which we will discuss in a while.
 
-- `Function<T, R>`
-- `Consumer<T>`
-- `Supplier<T>`
-- `BiFunction<T, U, R>`
-- `Predicate<T>`
+- Function<T, R>
+- Consumer<T>
+- Supplier<T>
+- BiFunction<T, U, R>
+- Predicate<T>
 
 ### Function<T,R>
 
