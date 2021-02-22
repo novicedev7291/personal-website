@@ -7,8 +7,13 @@ import Main from '../components/main'
 import ReactMarkdown from 'react-markdown'
 
 import 'prismjs/themes/prism-solarizedlight.css'
+import '../styles/markdown.css'
 
 import Prism from 'prismjs'
+
+const SubHeading = ({ text,otherClasses }) => (
+  <p className={`font-medium text-gray-500 text-sm ${otherClasses}`}>{text}</p> 
+)
 
 const PostTemplate = ({data, location}) => {
     const author = data.site.siteMetadata.author
@@ -25,13 +30,13 @@ const PostTemplate = ({data, location}) => {
     return <Layout>
         <Header author={{...author, avatar}} />
         <Main>
-            <div className="flex flex-col md:max-w-lg max-w-full p-8 space-y-4">
-                <h1>{title}</h1>
+            <div className="flex flex-col p-8 space-y-4">
+                <h1 className="text-3xl font-medium text-gray-600">{title}</h1>
                 <div className="flex">
-                    <p>{date}</p>
-                    <p>{`${timeToRead} min read`}</p>
+                    <SubHeading text={date} otherClasses="mr-4" />
+                    <SubHeading text={`${timeToRead} min read`} />
                 </div>
-                <ReactMarkdown>{rawMarkdownBody}</ReactMarkdown>
+                <ReactMarkdown className="flex flex-col markdown space-y-4">{rawMarkdownBody}</ReactMarkdown>
             </div>
         </Main>
     </Layout>

@@ -1,0 +1,30 @@
+.markdown > pre[class*="language-"] {
+  @apply bg-gray-800;
+}
+
+.markdown > pre[class*="language-"] > code[class*="language-"] {
+  @apply text-xs text-gray-50;
+}
+
+.markdown > blockquote {
+  @apply border-solid border-l-4 border-gray-500;
+}
+
+.markdown > p,
+blockquote,
+pre {
+  @apply max-w-lg;
+}
+
+.markdown > p {
+  @apply text-gray-600;
+}
+
+.markdown > h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-700;
+}
