@@ -1,8 +1,46 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Header from '../components/header'
 import Layout from '../components/layout'
+import Main from '../components/main'
 
-export default function About() {
+export default function About({data, location}) {
+   const author = data.site.siteMetadata.author
+   const avatar = data.file.childImageSharp.fixed
    return <Layout>
-       <p>Hi, my name is Kuldeep Yadav, I am a software engineer in small startup in Gurugram, India. In my career of of almost 8 years, I have worked upon various frameworks, languages and databases. I love to build new things from scratch and see how a product shape up from zero like a tree germinates from seed.</p>
+       <Header author={{...author, avatar}} />
+       <Main>
+           <div className="flex flex-col max-w-lg pt-8">
+                <p className="text-gray-600">{author.about}</p>
+           </div>
+       </Main>
    </Layout> 
 }
+
+export const pageQuery = graphql`
+query {
+    site {
+        siteMetadata {
+          title,
+          description,
+          author {
+            name,
+            shortIntro,
+            about,
+            contact,
+            social {
+              twitter,
+              github
+            }
+          }
+        }
+      },
+      file(relativePath: { eq: "profile-pic.JPG"}) {
+        childImageSharp {
+          fixed(width: 100, height: 100, quality:90) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+}
+`

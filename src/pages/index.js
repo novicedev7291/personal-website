@@ -4,15 +4,12 @@ import { graphql } from 'gatsby'
 
 
 import Layout from '../components/layout'
-import Header from '../components/header'
 import Main from '../components/main'
 import Posts from '../components/posts'
+import HeaderInfo from '../components/headerInfo'
 
 const IndexPage = ({ data, location }) => {
   const postEdges = data.allMarkdownRemark.edges
-
-  const author = data.site.siteMetadata.author
-  const avatar = data.file.childImageSharp.fixed
 
   const posts = postEdges.map(edge => {
     const node = edge.node
@@ -29,7 +26,7 @@ const IndexPage = ({ data, location }) => {
   })
 
   return <Layout>
-    <Header author={{...author, avatar}} />
+    <HeaderInfo />
     <Main>
       <Posts posts={posts} />
     </Main>
@@ -40,29 +37,6 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title,
-        description,
-        author {
-          name,
-          shortIntro,
-          about,
-          contact,
-          social {
-            twitter,
-            github
-          }
-        }
-      }
-    }
-    file(relativePath: { eq: "profile-pic.JPG"}) {
-      childImageSharp {
-        fixed(width: 100, height: 100, quality:90) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
     allMarkdownRemark (
       sort: { fields: [frontmatter___date], order: DESC },
       limit: 10
