@@ -4,7 +4,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Main from "../components/main"
 import Posts from "../components/posts"
-import HeaderInfo from "../components/headerInfo"
+import Header from "../components/header"
+import ProfileContainer from "../components/profile-container"
 
 const IndexPage = ({ data, location }) => {
   const postEdges = data.allMarkdownRemark.edges
@@ -25,8 +26,9 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <Layout>
-      <HeaderInfo />
+      <Header />
       <Main>
+        <ProfileContainer />
         <Posts posts={posts} />
       </Main>
     </Layout>

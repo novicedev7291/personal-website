@@ -1,9 +1,5 @@
-import React from 'react'
+import React from "react"
 
-const Main = ({ children }) => (
-    <div className="w-full">
-        {children}
-    </div>
-)
+const Main = ({ children }) => <section>{children}</section>
 
 export default Main
