@@ -28,12 +28,12 @@ const ProfileContainer = () => {
   `
   return (
     <StaticQuery
-      staticQuery={staticQuery}
+      query={staticQuery}
       render={data => {
         const author = data.site.siteMetadata.author
-        const avatar = data.file.childImageSharp
+        const avatar = data.file.childImageSharp.fixed
 
-        return <Profile author={{ ...author, avatar }} />
+        return <Profile {...author} avatar={avatar} />
       }}
     />
   )

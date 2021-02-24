@@ -27,7 +27,7 @@ const Posts = ({ posts }) =>
   posts.map(post => (
     <div className="p-2 mt-8">
       <div className="w-full space-y-8">
-        <Post key={post.id} {...post} />;
+        <Post key={post.id} {...post} />
       </div>
     </div>
   ))
