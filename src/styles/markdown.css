@@ -13,7 +13,7 @@
 .markdown > p,
 blockquote,
 pre {
-  @apply max-w-lg;
+  @apply max-w-full;
 }
 
 .markdown > p {

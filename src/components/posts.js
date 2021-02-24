@@ -13,7 +13,7 @@ const Post = ({ title, date, timeToRead, excerpt, tags, slug }) => (
         <small className="text-gray-500 text-sm">{date}</small>
         <small className="text-gray-500 text-sm">{`${timeToRead} min read`}</small>
       </div>
-      <p className="text-gray-600 font-medium text-md">{excerpt}</p>
+      <p className="text-gray-600 font-small text-sm">{excerpt}</p>
       <div className="flex text-green-500 text-sm">
         {tags.map(tag => (
           <Tag key={tag} name={tag} />

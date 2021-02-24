@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import Profile from "./profile"
 
-const ProfileContainer = () => {
+const ProfileContainer = ({ extraClassNames }) => {
   const staticQuery = graphql`
     query {
       site {
@@ -33,7 +33,7 @@ const ProfileContainer = () => {
         const author = data.site.siteMetadata.author
         const avatar = data.file.childImageSharp.fixed
 
-        return <Profile {...author} avatar={avatar} />
+        return <Profile {...author} avatar={avatar} extraClassNames={extraClassNames} />
       }}
     />
   )
