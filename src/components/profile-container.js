@@ -33,7 +33,13 @@ const ProfileContainer = ({ extraClassNames }) => {
         const author = data.site.siteMetadata.author
         const avatar = data.file.childImageSharp.fixed
 
-        return <Profile {...author} avatar={avatar} extraClassNames={extraClassNames} />
+        return (
+          <Profile
+            {...author}
+            avatar={avatar}
+            extraClassNames={extraClassNames}
+          />
+        )
       }}
     />
   )
