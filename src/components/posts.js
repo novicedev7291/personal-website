@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const Tag = ({ name }) => <div className="mr-1 p-0.5">{`#${name}`}</div>
 
-const Post = ({ title, date, timeToRead, excerpt, tags, slug }) => (
+const Post = ({ id, title, date, timeToRead, excerpt, tags, slug }) => (
   <>
     <div className="flex flex-col space-y-1">
       <Link className="text-gray-700 font-semibold text-2xl" to={`${slug}`}>
@@ -25,7 +25,7 @@ const Post = ({ title, date, timeToRead, excerpt, tags, slug }) => (
 
 const Posts = ({ posts }) =>
   posts.map(post => (
-    <div className="p-2 mt-8">
+    <div key={post.id} className="p-2 mt-8">
       <div className="w-full space-y-8">
         <Post key={post.id} {...post} />
       </div>

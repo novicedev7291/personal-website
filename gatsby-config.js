@@ -6,8 +6,6 @@ module.exports = {
     author: {
       name: "Kuldeep Yadav",
       shortIntro: "I know few things about code",
-      about:
-        "Hi, My name is Kuldeep Yadav and I live in Gurugram, India and work in a small startup, I have a beautiful wife and family.\nI have worked upon various programming langauges and frameworks in my career and I love to build things from scratch.\nHere, I share whatever I learnt and tried so far.",
       contact: "kuldeepyadav7291@gmail.com",
       social: {
         twitter: "marzi_ka_maalik",
@@ -40,6 +38,14 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: ["gatsby-remark-prismjs"],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Coding Saga",
+        start_url: "/",
+        icon: "content/assets/favicon.png",
       },
     },
     "gatsby-transformer-sharp",

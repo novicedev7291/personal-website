@@ -2,12 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Main from "../components/main"
 import Posts from "../components/posts"
-import Header from "../components/header"
 import ProfileContainer from "../components/profile-container"
+import SEO from "../components/seo"
 
-const IndexPage = ({ data, location }) => {
+const IndexPage = ({ data }) => {
   const postEdges = data.allMarkdownRemark.edges
 
   const posts = postEdges.map(edge => {
@@ -26,11 +25,9 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <Layout>
-      <Header />
-      <Main>
-        <ProfileContainer />
-        <Posts posts={posts} />
-      </Main>
+      <SEO title={"Home"} />
+      <ProfileContainer />
+      <Posts posts={posts} />
     </Layout>
   )
 }
