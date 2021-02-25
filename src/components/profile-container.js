@@ -1,20 +1,15 @@
 import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import Profile from "./profile"
 
-import { StaticQuery, graphql } from "gatsby"
-import Header from "./header"
-
-const HeaderInfo = () => {
-  const query = graphql`
+const ProfileContainer = ({ extraClassNames }) => {
+  const staticQuery = graphql`
     query {
       site {
         siteMetadata {
-          title
-          description
           author {
             name
             shortIntro
-            about
-            contact
             social {
               twitter
               github
@@ -31,18 +26,23 @@ const HeaderInfo = () => {
       }
     }
   `
-
   return (
     <StaticQuery
-      query={query}
+      query={staticQuery}
       render={data => {
         const author = data.site.siteMetadata.author
         const avatar = data.file.childImageSharp.fixed
 
-        return <Header author={{ ...author, avatar }} />
+        return (
+          <Profile
+            {...author}
+            avatar={avatar}
+            extraClassNames={extraClassNames}
+          />
+        )
       }}
     />
   )
 }
 
-export default HeaderInfo
+export default ProfileContainer
