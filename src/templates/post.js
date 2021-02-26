@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import ReactMarkdown from "react-markdown"
 
@@ -44,6 +44,12 @@ const PostTemplate = ({ data }) => {
       <div className="mt-4">
         <Hr />
         <ProfileContainer extraClassNames={`my-4`} />
+      </div>
+      <div className="px-4 pb-4">
+        <Link
+          className="text-gray-600 font-semibold text-sm"
+          to="/"
+        >{`<- Back`}</Link>
       </div>
     </Layout>
   )
