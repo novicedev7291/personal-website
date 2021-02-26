@@ -1,1 +1,1 @@
-This my personal website, go check it out link will be coming soon.
+This my personal website, go check it out link in description.
