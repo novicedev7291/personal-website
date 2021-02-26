@@ -63,6 +63,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-remove-serviceworker",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-postcss",
