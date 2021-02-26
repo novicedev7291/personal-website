@@ -5,7 +5,7 @@ module.exports = {
       "Coding saga is about sharing my personal experiences about programming",
     author: {
       name: "Kuldeep Yadav",
-      shortIntro: "I know few things about code",
+      shortIntro: "I know few things about coding",
       contact: "kuldeepyadav7291@gmail.com",
       social: {
         twitter: "marzi_ka_maalik",
@@ -46,6 +46,20 @@ module.exports = {
         name: "Coding Saga",
         start_url: "/",
         icon: "content/assets/favicon.png",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-C2NFTWY1D3"],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          head: true,
+          exclude: ["/about"],
+        },
       },
     },
     "gatsby-transformer-sharp",
