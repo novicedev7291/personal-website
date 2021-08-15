@@ -14,17 +14,11 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-typography",
       options: {
         pathToConfigModule: "src/utils/typography",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/content/posts`,
-        name: "posts",
       },
     },
     {
@@ -35,10 +29,29 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/posts`,
+        name: "posts",
+      },
+    }, 
+    {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-prismjs"],
-      },
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 600,
+              withWebp: true,
+              showCaptions: true,
+              quality: 100
+            }
+          },
+          "gatsby-remark-prismjs",
+          "gatsby-remark-copy-linked-files"
+        ]
+      }
     },
     {
       resolve: "gatsby-plugin-manifest",
