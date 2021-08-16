@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Posts from "../components/posts"
 import ProfileContainer from "../components/profile-container"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
   const postEdges = data.allMarkdownRemark.edges
@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={"Home"} />
+      <Seo title={"Home"} />
       <ProfileContainer />
       <Posts posts={posts} />
     </Layout>

@@ -1,12 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
 import ProfileContainer from "../components/profile-container"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 export default function About({ location }) {
   return (
     <Layout>
-      <SEO title={"About"} />
+      <Seo title={"About"} />
       <div className="flex flex-col w-full pt-8 px-4 space-y-4 text-gray-600 font-semibold">
         <h1 className="font-bold text-gray-600 text-3xl">Hi,</h1>
         <p>My name is Kuldeep Yadav, living in Gurugram, India.</p>
