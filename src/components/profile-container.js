@@ -19,9 +19,7 @@ const ProfileContainer = ({ extraClassNames }) => {
       }
       file(relativePath: { eq: "profile-pic.JPG" }) {
         childImageSharp {
-          fixed(width: 100, height: 100, quality: 90) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(layout: FIXED, height: 100, width: 100, quality: 90) 
         }
       }
     }
@@ -31,7 +29,7 @@ const ProfileContainer = ({ extraClassNames }) => {
       query={staticQuery}
       render={data => {
         const author = data.site.siteMetadata.author
-        const avatar = data.file.childImageSharp.fixed
+        const avatar = data.file.childImageSharp.gatsbyImageData
 
         return (
           <Profile

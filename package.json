@@ -6,7 +6,6 @@
   "author": "Kuldeep Yadav <kuldeepyadav7291@gmail.com>",
   "dependencies": {
     "gatsby": "^3.0.0",
-    "gatsby-image": "^2.11.0",
     "gatsby-plugin-image": "^1.11.0",
     "gatsby-plugin-manifest": "^3.11.0",
     "gatsby-plugin-react-helmet": "^4.11.0",
