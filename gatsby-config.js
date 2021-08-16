@@ -15,6 +15,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-typography",
       options: {
@@ -42,7 +43,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 600,
+              maxWidth: 1200,
               withWebp: true,
               showCaptions: true,
               quality: 100
@@ -76,8 +77,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
-    "gatsby-plugin-remove-serviceworker",
-    "gatsby-plugin-sharp",
+    "gatsby-plugin-remove-serviceworker",  
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-postcss",
   ],
