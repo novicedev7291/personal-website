@@ -27,7 +27,7 @@ diagram of the classes involved.
 
 > Let's refer the Chain of responsibility pattern with COR now onwards.
 
-![Class Diagram](cor_class.png)
+![Class Diagram](/images/cor_class.png)
 
 Here, `MailFilter` is the functional interface with abstract `filter` method, which will be then implemented by every concrete
 class i.e. `SpamFilter`, `FanFilter`, so each filter will provide its own implementation for filter logic.
@@ -35,7 +35,7 @@ class i.e. `SpamFilter`, `FanFilter`, so each filter will provide its own implem
 `MailServer` class is the sender class which will send the mail object to handler assigned to it, in actual 
 implementation it would not know if there are more than one handler and which handler it is interacting with.
 
-![Sequence Diagram](cor_sequence.png)
+![Sequence Diagram](/images/cor_sequence.png)
 
 ## Implementation
 For the implementation I have chosen the functional interface instead of abstract class for `MailHandler` above since 
