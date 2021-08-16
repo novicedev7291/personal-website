@@ -126,7 +126,7 @@ As with every thing in software world, this pattern is also not a magic bullet a
 * With very long chain of handlers, the call stack will grow as well, and it could lead to performance issues.
 * It can lead to duplicate code among handlers, although duplication can be avoided.
 
-### Points To Consider Before Use
+### Points To Consider
 * Use it when you don't need the guarantee that the request object must be executed by all the handlers, otherwise use
 the decorator pattern.
 * Use it when multiple handlers must be able to process a request object, and you don't want sender to have any idea
