@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const Profile = ({ avatar, name, shortIntro, social, extraClassNames }) => {
   return (
@@ -8,7 +8,7 @@ const Profile = ({ avatar, name, shortIntro, social, extraClassNames }) => {
         extraClassNames && extraClassNames
       }`}
     >
-      <Img className="rounded-full" fixed={avatar} alt="profile-pic" />
+      <GatsbyImage className="rounded-full" image={avatar} alt="profile-pic" />
       <div className="flex flex-col flex-grow justify-center">
         <p className="font-medium text-gray-700 text-md">{name}</p>
         <strong className="text-gray-600 italic text-sm">{shortIntro}</strong>

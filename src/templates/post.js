@@ -10,7 +10,7 @@ import "../styles/markdown.css"
 import Prism from "prismjs"
 import ProfileContainer from "../components/profile-container"
 import Hr from "../components/hr"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 
 const SubHeading = ({ text, otherClasses }) => (
   <p className={`font-medium text-gray-500 text-sm ${otherClasses}`}>{text}</p>
@@ -30,7 +30,7 @@ const PostTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt} />
+      <Seo title={title} description={excerpt} />
       <div className="flex flex-col space-y-4 mt-4 px-2">
         <h1 className="text-2xl font-medium text-gray-600">{title}</h1>
         <div className="flex">

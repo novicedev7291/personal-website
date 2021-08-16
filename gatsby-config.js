@@ -14,17 +14,12 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-plugin-typography",
       options: {
         pathToConfigModule: "src/utils/typography",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/content/posts`,
-        name: "posts",
       },
     },
     {
@@ -35,10 +30,19 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/posts`,
+        name: "posts",
+      },
+    }, 
+    {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: ["gatsby-remark-prismjs"],
-      },
+        plugins: [
+          "gatsby-remark-prismjs",
+        ]
+      }
     },
     {
       resolve: "gatsby-plugin-manifest",
@@ -63,8 +67,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
-    "gatsby-plugin-remove-serviceworker",
-    "gatsby-plugin-sharp",
+    "gatsby-plugin-remove-serviceworker",  
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-postcss",
   ],
