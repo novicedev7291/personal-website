@@ -4,34 +4,27 @@ date: 2023-07-14
 tags: python,extension,wrapper
 author: Kuldeep Yadav
 ---
->*Disclaimer:* I am still exploring this space and might have interpreted few
+>**Disclaimer:** I am still exploring this space and might have interpreted few
 things wrongly here, hence I would advise readers to take it with a pinch of 
 salt and explore themselves and don't use the examples in production :-)
 
-Recently in my company, I was asked to analyse a python package which can be 
-used to connect with kafka cluster as my team is moving away from tech stack 
-which involves languages i.e. Java, C# to languages like python & node.
-
-I have some experience with python as once in my previous company, I used flask
-to write an API gateway (not completely, it was just a bad wrapper) and it was
+Recently in my company, I was asked to analyse a python package which can be
+used to connect with kafka cluster as my team is moving away from tech stack
+which involves languages i.e. Java, C# to languages like python & node.I have
+some experience with python as once in my previous company, I used flask to
+write an API gateway (not completely, it was just a bad wrapper) and it was
 working quite well but then due to maintenance burden of a different tech (which
 I only knew at that time), we decided to ditch it completely.
 
-Now coming back to our story, at first I thought, it should be easy as their 
-must be some package on pypi, which can be used but there was a catch in my
-requirement.
-
-The cluster I had to connect was using `Kerberos` authentication, which to be
-honest till date I have not understand completely due to its opaqueness in some
-regards and compairing with other authN & authZ patterns i.e. OAuth2, token etc.
-
-Still, I thought there would be some packages available which can be leveraged,
-but to my surprise, I could only find 2 packages, `kafka-python` & 
-`confluent-kafka`.
-
-It was fine, I just needed one to work, but here comes the challenge,
-both packages required SASL feature to be enabled which internally would use
-GSS API.
+At first I thought, it should be easy as their must be some package on pypi,
+which can be used but there was a catch in my requirement.The cluster I had to
+connect was using `Kerberos` authentication, which to be honest till date I have
+not understand completely due to its opaqueness in some regards and compairing
+with other authN & authZ patterns i.e. OAuth2, token etc.Still, I thought there
+would be some packages available which can be leveraged, but to my surprise, I
+could only find 2 packages, `kafka-python` & `confluent-kafka`.It was fine, I
+just needed one to work, but here comes the challenge, both packages required
+SASL feature to be enabled which internally would use GSS API.
 
 >This is little bit involved as GSS (Generic Security Services API) allows
 application to communicate securely using kerberos and requires native library
@@ -44,8 +37,6 @@ internet. Now this post will become very long if describe the every piece of
 kerberos authentication and at the time of writing this I am not fully 
 convinced that I undestand it.
 
-Let's come back to our packages now.
-
 I first gave a try to `kafka-python` as I found an example online demonstrating
 producer example using kerberos, but when I tried, it didn't work for me and 
 error message were not clear enought what was happening, so I checked the 
@@ -54,18 +45,16 @@ issue, the author himself confirmed that he doesn't have much clue about the
 SASL implementation as it was patched by community only and doesn't have idea
 around how to debug or test it.
 
-Finally, I decided to give up on this and turned towards `confluent-python-kafka`
-package, which was also an official package from the `Confluent` (company
-behind kafka now).
-
-Now, this package had one big issue, it was not supporting SASL out of the box.
-On github, it's README file mentioned that this is a wrapper package on their
-existing C/C++ library `librdkafka` and for SASL, simply installing it from
-pypi and using in our code, won't work. We would need to install using *source
-distribution*, which then link the SASL feature.
-
-Normally, you would expect from any package manager to install the library and
-then you can start using it, but in above case we have to do some extra steps.
+Finally, I decided to give up on this and turned towards
+`confluent-python-kafka` package, which was also an official package from the
+`Confluent` (company behind kafka now), this package had one big issue, it was
+not supporting SASL out of the box. On github, it's README file mentioned that
+this is a wrapper package on their existing C/C++ library `librdkafka` and for
+SASL, simply installing it from pypi and using in our code, won't work. We would
+need to install using *source distribution*, which then link the SASL
+feature.Normally, you would expect from any package manager to install the
+library and then you can start using it, but in above case we have to do some
+extra steps.
 
 #### Packages
 Languages like java has a concept of bytecode, so every dependency you would 
@@ -75,19 +64,17 @@ abstracting away the complexity of creating platform dependent binaries.
 
 Javascript is also same in that regard but since most js frameworks are using
 nodejs, which provides engine to run the js on any machine but also abstracts
-the complexity of running your js program on any platform.
+the complexity of running your js program on any platform.Python also uses
+interpreter Cython to compile and execute the code on any platform. Since both
+node and Cython are written in C/C++, its natural to have the API available so
+that you can extend the capabilities of these languages.
 
-Python also uses interpreter Cython to compile and execute the code on any
-platform. Since both node and Cython are written in C/C++, its natural to have
-the API available so that you can extend the capabilities of these languages.
-
-Python have two types of packages pure python or wrapper packages around native
+Python has two types of packages pure python or wrapper packages around native
 libraries written in c, c++, rust etc etc. As you might have got the idea that
-pure packages are written completely in python and you just install and use them.
-
-Wrapper packages requires more to setup and use because of inherited complexity
-of the platform on which it will run. These packages are mostly written in C/C++
-and hence require platform specific tools to compile these.
+pure packages are written completely in python and you just install and use
+them.Wrapper packages requires more to setup and use because of inherited
+complexity of the platform on which it will run. These packages are mostly
+written in C/C++ and hence require platform specific tools to compile these.
 
 #### My toy example
 Before we dive into how these packages are installed and setup, let's understand
@@ -258,17 +245,17 @@ install package using below:
 ```sh
 pip install --no-binary confluent_kafka confluent_kafka
 ```
-The reason for doing this was because the package authors decided to disable 
-the SASL feature while creating binary distribution. This makes sense if they
-would have thought that not everyone will be using kerberos to authenticate
-with kafka and they might have thought that generally the older languages like
-c/c++, java etc. only are used in that case to connect to kafka cluster and 
-not python and also it was required that the `librdkafka` (their c/c++) lib
-and its dependencies should be present on the machine to utilise this feature.
 
-Hence the source distribution was necessity so that pip can link the `librdkafka` 
-dynamic library on OS while installing the package with SASL feature enabled and
-in your code you can easily use the kerberos authentication.
+The reason is that the package authors decided to disable the SASL feature while
+creating binary distribution. I guess they might have thought that not everyone
+will be using kerberos to authenticate with kafka and they might have thought
+that generally the older languages like c/c++, java etc. only are used in that
+case to connect to kafka cluster and not python and it is required that the
+`librdkafka` (their c/c++) lib and its dependencies should be present on the
+machine to utilise this feature.Hence the source distribution was necessity so
+that pip can link the `librdkafka` dynamic library on OS while installing the
+package with SASL feature enabled and in your code you can easily use the
+kerberos authentication.
 
 If you want to learn more about how it all works, you may check the 
 [confluent-kafka-python](https://github.com/confluentinc/confluent-kafka-python/)
@@ -280,18 +267,19 @@ implementation in our example above.
 ### Conclusion
 It was exciting for me to touch base around how extension C API works  and doing
 something in c/c++ after very long and I learn few things around python and its
-ecosystem. Also, I found that the most famouse python libs are using C API and
+ecosystem. Also, I found that the most famous python libs are using C API and
 major chunk of the packages is written in c, c++, rust etc etc.
 
-I think there are some good use cases of doing this i.e. reusing component already
-written in other language stack and already famous, performance but it also makes
-the ecosystem complex for user who are not much aware of these things and generally
-work in python. Sometimes I have seen the error messages emitted by `pip` are
-too cryptic to understand what has gone wrong if you don't know all this.
+I think there are some good use cases of doing this i.e. reusing component
+already written in other language stack and already famous, performance etc.,
+but again it also makes the ecosystem complex for user who are not much aware of
+these things and generally work in python. Sometimes I have seen the error
+messages emitted by `pip` are too cryptic to understand what has gone wrong if
+you don't know all this.
 
 I have mixed feeling about the whole ecosystem as of now and not sure if this is
 good thing but I guess this will be a trade off for easy language syntax and ease
-of use for scripting....I don't know!
+of use for scripting....I don't know yet!
 
 ### References
 * [Python extension API docs](https://docs.python.org/3/extending/extending.html#)
