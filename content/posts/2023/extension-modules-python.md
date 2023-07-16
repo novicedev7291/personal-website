@@ -20,12 +20,12 @@ At first I thought, it should be easy as their must be some package on pypi,
 which can be used but there was a catch in my requirement.The cluster I had to
 connect was using `Kerberos` authentication, which to be honest till date I
 have not understand completely due to its opaqueness in some regards and
-compairing with other authN & authZ patterns i.e. OAuth2, token etc.Still, I
-thought there would be some packages available which can be leveraged, but to
-my surprise, I could only find 2 packages, `kafka-python` &
-`confluent-kafka`.It was fine, I just needed one to work, but here comes the
-challenge, both packages required SASL feature to be enabled which internally
-would use GSS API.
+compairing it with other authN & authZ patterns i.e. OAuth2, token etc. Still,
+I thought there would be some packages available which can be leveraged, but to
+my surprise, I could only find 2 packages, `kafka-python` & `confluent-kafka`.
+It was fine, I just needed one to work, but here comes the challenge, both
+packages required SASL feature to be enabled which internally would use GSS
+API.
 
 >This is little bit involved as GSS (Generic Security Services API) allows
 application to communicate securely using kerberos and requires native library
