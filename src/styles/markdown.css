@@ -1,42 +1,58 @@
-.markdown > pre[class*="language-"] {
-  @apply bg-gray-800;
+.markdown pre {
+  @apply bg-gray-800 overflow-x-auto rounded p-4 my-4;
 }
 
-.markdown > pre[class*="language-"] > code[class*="language-"] {
+.markdown pre code {
   @apply text-xs text-gray-50;
 }
 
-.markdown > blockquote {
-  @apply border-solid border-l-4 border-gray-500;
+.markdown blockquote {
+  @apply border-solid border-l-4 border-gray-500 pl-4 italic;
 }
 
-.markdown > p,
-blockquote,
-pre {
+.markdown p,
+.markdown blockquote,
+.markdown pre {
   @apply max-w-full;
 }
 
-.markdown > p {
+.markdown p {
   @apply text-gray-600;
 }
 
-.markdown > ul {
+.markdown ul {
   padding-left: 1.5rem;
   list-style: inherit;
   @apply text-gray-600;
 }
 
-.markdown > h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-gray-700;
+.markdown ol {
+  padding-left: 1.5rem;
+  list-style: decimal;
+  @apply text-gray-600;
 }
 
-@layer base {
-  .markdown a {
-    color: #00b7ff;
-  }
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  @apply text-gray-700 font-semibold mt-6 mb-2;
+}
+
+.markdown h1 {
+  @apply text-2xl;
+}
+
+.markdown h2 {
+  @apply text-xl;
+}
+
+.markdown h3 {
+  @apply text-lg;
+}
+
+.markdown a {
+  color: #00b7ff;
 }
