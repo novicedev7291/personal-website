@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+}
+
+const {
+  title,
+  description = "Coding saga is about sharing my personal experiences about programming",
+  ogType = "website",
+} = Astro.props;
+
+const siteTitle = "Coding saga";
+const fullTitle = `${title} | ${siteTitle}`;
+const twitterHandle = "@marzi_ka_maalik";
+const GA_ID = "G-GVFZ4Q2W8K";
+const isAboutPage = Astro.url.pathname === "/about";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content={twitterHandle} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    {
+      !isAboutPage && (
+        <>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+          <script define:vars={{ GA_ID }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", GA_ID);
+          </script>
+        </>
+      )
+    }
+  </head>
+  <body>
+    <div class="max-w-3xl mx-auto bg-gray-50 min-h-screen px-8">
+      <header class="w-full">
+        <div class="flex items-center justify-between py-4">
+          <div class="text-gray-700 font-extrabold text-3xl">
+            <a href="/">coding-saga</a>
+          </div>
+          <div class="text-gray-500 font-semibold text-lg">
+            <a href="/about">About</a>
+          </div>
+        </div>
+      </header>
+      <section>
+        <slot />
+      </section>
+    </div>
+  </body>
+</html>
