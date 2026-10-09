@@ -1,6 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,ts,tsx}"],
-  darkMode: false,
+  darkMode: "media",
   theme: {
     extend: {},
   },

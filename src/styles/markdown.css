@@ -1,13 +1,13 @@
 .markdown pre {
-  @apply bg-gray-800 overflow-x-auto rounded p-4 my-4;
+  @apply overflow-x-auto rounded p-4 my-4;
 }
 
 .markdown pre code {
-  @apply text-xs text-gray-50;
+  @apply text-xs;
 }
 
 .markdown blockquote {
-  @apply border-solid border-l-4 border-gray-500 pl-4 italic;
+  @apply border-solid border-l-4 border-gray-500 dark:border-gray-600 pl-4 italic;
 }
 
 .markdown p,
@@ -17,19 +17,19 @@
 }
 
 .markdown p {
-  @apply text-gray-600;
+  @apply text-gray-600 dark:text-gray-400;
 }
 
 .markdown ul {
   padding-left: 1.5rem;
   list-style: inherit;
-  @apply text-gray-600;
+  @apply text-gray-600 dark:text-gray-400;
 }
 
 .markdown ol {
   padding-left: 1.5rem;
   list-style: decimal;
-  @apply text-gray-600;
+  @apply text-gray-600 dark:text-gray-400;
 }
 
 .markdown h1,
@@ -38,7 +38,7 @@
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  @apply text-gray-700 font-semibold mt-6 mb-2;
+  @apply text-gray-700 dark:text-gray-200 font-semibold mt-6 mb-2;
 }
 
 .markdown h1 {
@@ -54,5 +54,22 @@
 }
 
 .markdown a {
-  color: #00b7ff;
+  color: #0369a1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown a {
+    color: #38bdf8;
+  }
+
+  .markdown .shiki,
+  .markdown .shiki span,
+  .markdown .astro-code,
+  .markdown .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
 }
