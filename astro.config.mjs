@@ -8,7 +8,10 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {
-      theme: "solarized-light",
+      themes: {
+        light: "solarized-light",
+        dark: "github-dark-dimmed",
+      },
     },
   },
 });
